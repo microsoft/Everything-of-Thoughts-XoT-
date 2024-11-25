@@ -2,6 +2,7 @@
 # Licensed under the MIT license.
 
 import logging
+import os
 import numpy as np
 import coloredlogs
 from argparse import ArgumentParser
@@ -34,6 +35,7 @@ def main():
     parser.add_argument('--multi_times', type=int, default=500)
     args = parser.parse_args()
 
+    os.makedirs('logs', exist_ok=True)
     logging.basicConfig(filename='logs/%s_%s.log'%(args.env, args.mode), filemode='w', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')  
     logging.info(args)
 
